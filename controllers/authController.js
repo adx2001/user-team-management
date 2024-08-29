@@ -53,7 +53,27 @@ exports.verifyEmail = async (req, res) => {
 
         await user.save();
 
-        res.status(200).json({ message: 'Email verified successfully' })
+        res.status(200).send(`
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Email Verified</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        text-align: center;
+                        padding: 50px;
+                        background-color: #f4f4f4;
+                    }
+                </style>
+            </head>
+            <body>
+                <p>Email verified successfully! You can now <a href="/login">login</a> to your account.</p>
+            </body>
+            </html>
+        `)
     } catch (err) {
         console.log("🚀 ~ exports.verifyEmail= ~ err:", err)
         res.status(400).json({ message: 'email verification failed' + err.message })
