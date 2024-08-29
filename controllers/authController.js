@@ -70,7 +70,7 @@ exports.verifyEmail = async (req, res) => {
                 </style>
             </head>
             <body>
-                <p>Email verified successfully! You can now <a href="/login">login</a> to your account.</p>
+                <p>Email verified successfully! You can now login to your account.</p>
             </body>
             </html>
         `)
